@@ -12,4 +12,6 @@ module org.example.nppnha {
 
     opens mainMenu to javafx.fxml;
     exports mainMenu;
+    exports mainMenu.controllers;
+    opens mainMenu.controllers to javafx.fxml;
 }
