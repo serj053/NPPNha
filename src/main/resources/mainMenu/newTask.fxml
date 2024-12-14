@@ -3,32 +3,59 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainMenu.controllers.newTaskController">
+<AnchorPane maxWidth="1.7976931348623157E308" prefHeight="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainMenu.controllers.newTaskController">
    <children>
-      <Label layoutX="341.0" layoutY="187.0" text="Новая сделка" textFill="#09b515">
-         <font>
-            <Font name="System Bold Italic" size="18.0" />
-         </font>
-      </Label>
       <Button layoutX="6.0" layoutY="2.0" mnemonicParsing="false" text="Параметры среды" />
       <Button layoutX="129.0" layoutY="2.0" mnemonicParsing="false" text="Расчет" />
       <Button layoutX="189.0" layoutY="2.0" mnemonicParsing="false" text="Навесное оборудование" />
       <Button layoutX="348.0" layoutY="2.0" mnemonicParsing="false" text="Позиция сделки" />
       <Label layoutX="20.0" layoutY="35.0" text="Сделка №" />
       <TextField layoutX="83.0" layoutY="31.0" prefHeight="25.0" prefWidth="73.0" />
-      <Label layoutX="175.0" layoutY="35.0" text="Поция №" />
-      <TextField layoutX="238.0" layoutY="31.0" prefHeight="25.0" prefWidth="28.0" />
-      <Label layoutX="286.0" layoutY="35.0" text="ОЛ №" />
+      <Label layoutX="175.0" layoutY="35.0" text="Позиция №" />
+      <TextField layoutX="252.0" layoutY="31.0" prefHeight="25.0" prefWidth="28.0" />
+      <Label layoutX="288.0" layoutY="35.0" text="ОЛ №" />
       <TextField layoutX="329.0" layoutY="31.0" prefHeight="25.0" prefWidth="145.0" />
       <Label layoutX="492.0" layoutY="35.0" text="Кол-во" />
       <Spinner layoutX="539.0" layoutY="31.0" prefHeight="25.0" prefWidth="47.0" />
       <Label layoutX="602.0" layoutY="35.0" text="Дата" />
       <DatePicker layoutX="632.0" layoutY="31.0" prefHeight="25.0" prefWidth="106.0" />
       <Button layoutX="780.0" layoutY="31.0" mnemonicParsing="false" text="Добавить позицию" />
+      <ScrollPane hbarPolicy="ALWAYS" layoutY="62.0" vbarPolicy="ALWAYS">
+         <content>
+            <TableView fx:id="resultTable" maxWidth="1.7976931348623157E308" prefHeight="200.0">
+              <columns>
+                <TableColumn prefWidth="33.0" />
+                <TableColumn fx:id="position" prefWidth="54.0" text="Поз. №" />
+                  <TableColumn fx:id="numberQL" prefWidth="216.0" text="ОЛ №" />
+                  <TableColumn fx:id="nameEquipment" prefWidth="217.0" text="Наименование  оборудования" />
+                  <TableColumn fx:id="amount" minWidth="0.0" prefWidth="45.0" text="Ко-во" />
+                  <TableColumn fx:id="pipeD" prefWidth="61.0" text="D трубы&#10; (мм*мм)" />
+                  <TableColumn fx:id="DN" prefWidth="61.0" text="Dy (мм)" />
+                  <TableColumn fx:id="PN" minWidth="1.0" prefWidth="52.0" text="Py (мПа)" />
+                  <TableColumn fx:id="Kvy" prefWidth="34.0" text="Kvy" />
+                  <TableColumn prefWidth="67.0" text="Материал&#10; корпуса" />
+                  <TableColumn prefWidth="92.0" text="Категория&#10;мат. корпуса" />
+                  <TableColumn prefWidth="88.0" text="Материал&#10;отв. фланцев" />
+                  <TableColumn prefWidth="55.0" text="Прис.&#10;клапана" />
+                  <TableColumn minWidth="-1.0" prefWidth="58.0" text="Прис. &#10;фланцев" />
+                  <TableColumn minWidth="-1.0" prefWidth="75.0" text="Темп.&#10;раб. среды" />
+                  <TableColumn prefWidth="-1.0" text="Климатическое&#10;исполнение" />
+                  <TableColumn minWidth="0.0" prefWidth="11.0" text="Класс&#10;герм-ти" />
+                  <TableColumn minWidth="0.0" prefWidth="9.0" text="Тип&#10;привода" />
+                  <TableColumn prefWidth="-1.0" text="Положение &#10;прив. Ав." />
+                  <TableColumn prefWidth="-1.0" text="Фильтр-редуктор" />
+                  <TableColumn prefWidth="-1.0" text="МИМ" />
+                  <TableColumn prefWidth="-1.0" text="Позиционер)" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
