@@ -40,11 +40,14 @@ public class newTaskController implements Initializable {
     @FXML
     private TableColumn<NewTaskTable, Integer> Kvy;
 
+    @FXML
+    private TableColumn<NewTaskTable, String> positioner;
+
     ObservableList<NewTaskTable> data = FXCollections.observableArrayList(
-            new NewTaskTable(1, "1", "1", 1, 1, 1),
-            new NewTaskTable(2, "2", "2", 2, 2, 2),
-            new NewTaskTable(3, "3", "3", 3, 3, 3),
-            new NewTaskTable(4, "4", "4", 4, 4, 4)
+            new NewTaskTable(1, "1", "1", 1, 1, 1,"p"),
+            new NewTaskTable(2, "2", "2", 2, 2, 2,"p"),
+            new NewTaskTable(3, "3", "3", 3, 3, 3,"p"),
+            new NewTaskTable(4, "4", "4", 4, 4, 4,"p")
     );
 
     public void initialize(URL url, ResourceBundle rb) {
@@ -56,6 +59,7 @@ public class newTaskController implements Initializable {
         DN.setCellValueFactory(new PropertyValueFactory<NewTaskTable, Integer>("DN"));
         PN.setCellValueFactory(new PropertyValueFactory<NewTaskTable, Integer>("PN"));
         Kvy.setCellValueFactory(new PropertyValueFactory<NewTaskTable, Integer>("Kvy"));
+        positioner.setCellValueFactory(new PropertyValueFactory<NewTaskTable, String>("positioner"));
         resultTable.setItems(data);
     }
 
