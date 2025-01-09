@@ -5,37 +5,28 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane minHeight="600.0" minWidth="800.0" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s.nppnha.controllers.MainController">
-   <center>
-     <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-       <Tab fx:id="parameters" onSelectionChanged="#getParameters" text="Параметры среды">
-         <AnchorPane minHeight="200.0" minWidth="400.0" prefHeight="646.0" prefWidth="1000.0"/>
-       </Tab>
-       <Tab fx:id="calculations" onSelectionChanged="#getCalculations" text="Расчеты">
-         <AnchorPane minHeight="200.0" minWidth="400.0" prefHeight="646.0" prefWidth="1000.0"/>
-       </Tab>
-       <Tab fx:id="equipments" onSelectionChanged="#getEquipments" text="Навесное оборудование">
-         <AnchorPane minHeight="200.0" minWidth="400.0" prefHeight="646.0" prefWidth="1000.0"/>
-       </Tab>
-       <Tab fx:id="positions" onSelectionChanged="#getPositions" text="Позиции сделки">
-         <AnchorPane minHeight="200.0" minWidth="400.0" prefHeight="646.0" prefWidth="1000.0"/>
-       </Tab>
-     </TabPane>
-   </center>
-   <top>
-     <MenuBar BorderPane.alignment="CENTER">
-       <Menu mnemonicParsing="false" text="File">
-         <MenuItem mnemonicParsing="false" text="Close"/>
-       </Menu>
-       <Menu mnemonicParsing="false" text="Edit">
-         <MenuItem mnemonicParsing="false" text="Delete"/>
-       </Menu>
-       <Menu mnemonicParsing="false" text="Help">
-         <MenuItem mnemonicParsing="false" text="About"/>
-       </Menu>
-     </MenuBar>
-   </top>
+<BorderPane maxHeight="740.0" maxWidth="1000.0" minHeight="500.0" minWidth="600.0" prefHeight="740.0"
+            prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="s.nppnha.controllers.MainController">
+    <center>
+
+    </center>
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <Menu mnemonicParsing="false" text="Файл">
+                <MenuItem fx:id="newTask" mnemonicParsing="false" onAction="#getNewTask" text="Новая сделка" />
+                <MenuItem fx:id="oldTask" mnemonicParsing="false" onAction="#openOldTask" text="Сохранить сделку" />
+                <MenuItem fx:id="saveTask" mnemonicParsing="false" onAction="#saveTask" text="Экспорт в CRM[xls]" />
+                <MenuItem mnemonicParsing="false" text="Экспорт запроса электропривода." />
+            </Menu>
+            <Menu mnemonicParsing="false" text="О программе">
+                <MenuItem mnemonicParsing="false" text="Здесь будет о программе" />
+            </Menu>
+            <Menu mnemonicParsing="false" text="Помощь">
+                <MenuItem mnemonicParsing="false" text="Здесь поможем" />
+            </Menu>
+        </MenuBar>
+    </top>
 </BorderPane>

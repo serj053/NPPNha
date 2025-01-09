@@ -1,15 +1,591 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1"
+<AnchorPane prefHeight="680.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="s.nppnha.controllers.Parameters">
-   <Label layoutX="222.0" layoutY="124.0" text="Parameters">
-      <font>
-         <Font size="24.0"/>
-      </font>
-   </Label>
+
+    <ScrollPane>
+        <AnchorPane fx:id="AnchEnvParam" prefHeight="680.0" prefWidth="1000.0">
+            <HBox layoutY="7.0" prefHeight="150.0" prefWidth="889.0" style="">
+                <VBox maxHeight="140.0" minHeight="135.0" prefHeight="135.0" prefWidth="660.0" style="">
+                    <Label fx:id="envLabel" prefHeight="33.0" prefWidth="657.0" style="-fx-alignment: center;"
+                           text="среда не определена">
+                        <font>
+                            <Font name="System Bold" size="18.0"/>
+                        </font>
+                    </Label>
+                    <Label prefHeight="32.0" prefWidth="657.0" text="Параметры клапана">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                        <VBox.margin>
+                            <Insets left="140.0"/>
+                        </VBox.margin>
+                    </Label>
+                    <HBox minWidth="660.0" prefHeight="24.0" prefWidth="660.0">
+                        <Label text="Наименование оборудования">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0"/>
+                            </HBox.margin>
+                        </Label>
+                        <Label text="Тип дросельного узла">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets left="40.0"/>
+                            </HBox.margin>
+                        </Label>
+                    </HBox>
+                    <HBox prefHeight="100.0" prefWidth="200.0">
+                        <SplitMenuButton fx:id="selectedEquipment" alignment="TOP_CENTER" mnemonicParsing="false"
+                                         onAction="#selectEquipment" prefWidth="210.0" text="выбрать">
+                            <items>
+                                <MenuItem fx:id="controlValve" mnemonicParsing="false" onAction="#controlValve"
+                                          text="Клапан регулирующий"/>
+                                <MenuItem fx:id="shutOffControlValve" mnemonicParsing="false"
+                                          onAction="#shutOffControlValve" text="Клапан запорно-регулирующий"/>
+                                <MenuItem fx:id="cutOffControlValve" mnemonicParsing="false"
+                                          onAction="#cutOffControlValve" text="Клапан регулирующе-отсечной"/>
+                                <MenuItem fx:id="shutOffValve" mnemonicParsing="false" onAction="#shutOffValve"
+                                          text="Клапан запорный"/>
+                                <MenuItem fx:id="cutOffValve" mnemonicParsing="false" onAction="#cutOffValve"
+                                          text="Клапан отсечной"/>
+                            </items>
+                            <HBox.margin>
+                                <Insets left="12.0"/>
+                            </HBox.margin>
+                        </SplitMenuButton>
+                        <SplitMenuButton fx:id="nodeType" alignment="CENTER" mnemonicParsing="false"
+                                         onAction="#selectNodeType" prefWidth="160.0" text="выбрать">
+                            <items>
+                                <MenuItem fx:id="notUnloaded" mnemonicParsing="false" onAction="#notUnloaded"
+                                          text="неразгруженный"/>
+                                <MenuItem fx:id="unloaded" mnemonicParsing="false" onAction="#unloaded"
+                                          text="разгруженный"/>
+                            </items>
+                            <HBox.margin>
+                                <Insets left="50.0"/>
+                            </HBox.margin>
+                        </SplitMenuButton>
+                    </HBox>
+                    <HBox prefHeight="100.0" prefWidth="620.0" style="-fx-background-color: #cdcdcd;">
+                        <VBox.margin>
+                            <Insets/>
+                        </VBox.margin>
+                        <Label alignment="CENTER" maxWidth="160.0" minWidth="160.0" prefHeight="26.0" prefWidth="160.0"
+                               text="Параметры расчета">
+                            <HBox.margin>
+                                <Insets left="20.0"/>
+                            </HBox.margin>
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </Label>
+                        <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="28.0" prefWidth="61.0"
+                                  text="MAX">
+                            <HBox.margin>
+                                <Insets left="20.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets top="2.0"/>
+                            </padding>
+                        </CheckBox>
+                        <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0"
+                                  text="NOM">
+                            <HBox.margin>
+                                <Insets left="20.0"/>
+                            </HBox.margin>
+                        </CheckBox>
+                        <TextField alignment="CENTER" prefHeight="16.0" prefWidth="35.0">
+                            <HBox.margin>
+                                <Insets left="10.0" top="3.0"/>
+                            </HBox.margin>
+                        </TextField>
+                        <Button fx:id="addColumn" alignment="CENTER" mnemonicParsing="false" onAction="#addColumn"
+                                text="+">
+                            <HBox.margin>
+                                <Insets top="3.0"/>
+                            </HBox.margin>
+                            <font>
+                                <Font name="System Bold" size="12.0"/>
+                            </font>
+                        </Button>
+                        <Button fx:id="removeColumn" mnemonicParsing="false" onAction="#removeColumn" prefHeight="25.0"
+                                prefWidth="24.0" text="-">
+                            <HBox.margin>
+                                <Insets top="3.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <CheckBox mnemonicParsing="false" prefHeight="27.0" prefWidth="61.0" text="MIN"
+                                  textAlignment="CENTER">
+                            <HBox.margin>
+                                <Insets left="20.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets top="2.0"/>
+                            </padding>
+                        </CheckBox>
+                        <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0"
+                                  text="автокопир">
+                            <HBox.margin>
+                                <Insets left="20.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets top="2.0"/>
+                            </padding>
+                        </CheckBox>
+                    </HBox>
+                </VBox>
+                <VBox prefHeight="148.0" prefWidth="225.0" style="">
+                    <Label text="Комментарий">
+                        <padding>
+                            <Insets left="10.0"/>
+                        </padding>
+                    </Label>
+                    <TextArea minWidth="300.0" prefHeight="124.0" prefWidth="300.0">
+                        <VBox.margin>
+                            <Insets left="10.0"/>
+                        </VBox.margin>
+                    </TextArea>
+                </VBox>
+            </HBox>
+            <HBox fx:id="dataHBox" layoutX="1.0" layoutY="152.0" maxWidth="1.7976931348623157E308" prefHeight="484.0"
+                  prefWidth="988.0" style="-fx-background-color: #e9e9e9;">
+                <VBox minHeight="400.0" prefHeight="400.0" prefWidth="207.0">
+                    <children>
+                        <HBox alignment="TOP_CENTER" maxHeight="24.0" minHeight="24.0" prefHeight="24.0"
+                              prefWidth="188.0">
+                            <children>
+                                <Label prefHeight="30.0" text="Параметр">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" right="10.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" maxHeight="24.0" minHeight="24.0" prefHeight="24.0"
+                              prefWidth="242.0" style="-fx-border-style: solid; -fx-border-color: #cdcdcd;">
+                            <children>
+                                <Label text="Расход Q"/>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" right="10.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="242.0"
+                              style="-fx-border-style: solid; -fx-border-color: #cdcdcd;">
+                            <VBox.margin>
+                                <Insets bottom="10.0" right="10.0"/>
+                            </VBox.margin>
+                            <children>
+                                <Label alignment="CENTER" contentDisplay="CENTER" text="Р вх.">
+                                    <HBox.margin>
+                                        <Insets left="5.0"/>
+                                    </HBox.margin>
+                                </Label>
+                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                        prefHeight="8.0" prefWidth="38.0" text="абс.">
+                                    <HBox.margin>
+                                        <Insets left="5.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                        prefHeight="11.0" prefWidth="38.0" text="изб.">
+                                    <HBox.margin>
+                                        <Insets left="5.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <CheckBox mnemonicParsing="false" prefHeight="22.0" prefWidth="64.0" text="ед. изм.">
+                                    <HBox.margin>
+                                        <Insets left="5.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                            </children>
+                            <padding>
+                                <Insets right="10.0"/>
+                            </padding>
+                        </HBox>
+                        <HBox maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="242.0">
+                            <VBox.margin>
+                                <Insets right="10.0"/>
+                            </VBox.margin>
+                            <children>
+                                <MenuButton alignment="CENTER" minWidth="210.0" mnemonicParsing="false"
+                                            prefHeight="210.0" text="Р выхдоное абс.">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Action 1"/>
+                                        <MenuItem mnemonicParsing="false" text="Action 2"/>
+                                    </items>
+                                </MenuButton>
+                            </children>
+                            <padding>
+                                <Insets right="10.0"/>
+                            </padding>
+                        </HBox>
+                        <HBox maxHeight="36.0" minHeight="36.0" prefHeight="36.0" prefWidth="207.0"
+                              style="-fx-border-style: solid; -fx-border-color: #cdcdcd;">
+                            <VBox.margin>
+                                <Insets right="10.0" top="2.0"/>
+                            </VBox.margin>
+                            <children>
+                                <Label prefHeight="33.0" prefWidth="124.0"
+                                       text="Внутренний диаметр&#10;трубы на входе, D1">
+                                    <padding>
+                                        <Insets left="10.0"/>
+                                    </padding>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets right="10.0"/>
+                            </padding>
+                        </HBox>
+                        <HBox maxHeight="36.0" minHeight="36.0" prefHeight="36.0" prefWidth="242.0"
+                              style="-fx-border-style: solid; -fx-border-color: #cdcdcd;">
+                            <VBox.margin>
+                                <Insets bottom="10.0" right="10.0" top="2.0"/>
+                            </VBox.margin>
+                            <children>
+                                <Label text="Внутренний диаметр&#10;ьрубы на выходе, D2">
+                                    <padding>
+                                        <Insets left="10.0"/>
+                                    </padding>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets right="10.0"/>
+                            </padding>
+                        </HBox>
+                        <HBox maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="242.0"
+                              style="-fx-border-style: solid; -fx-border-color: #cdcdcd;">
+                            <VBox.margin>
+                                <Insets bottom="10.0" right="10.0"/>
+                            </VBox.margin>
+                            <children>
+                                <Label text="Параметры среды">
+                                    <padding>
+                                        <Insets left="10.0"/>
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="242.0"
+                              style="-fx-border-style: solid; -fx-border-color: #cdcdcd;">
+                            <VBox.margin>
+                                <Insets bottom="10.0" right="10.0"/>
+                            </VBox.margin>
+                            <children>
+                                <Label text="Среда ">
+                                    <padding>
+                                        <Insets left="10.0"/>
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox maxHeight="36.0" minHeight="36.0" prefHeight="36.0" prefWidth="242.0"
+                              style="-fx-border-style: solid; -fx-border-color: #cdcdcd;">
+                            <VBox.margin>
+                                <Insets bottom="10.0" right="10.0"/>
+                            </VBox.margin>
+                            <children>
+                                <Label text="Температура на &#10;входе, T1">
+                                    <padding>
+                                        <Insets left="10.0"/>
+                                    </padding>
+                                </Label>
+                                <CheckBox mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" text="авто зап.">
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                            </children>
+                        </HBox>
+                        <HBox maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="242.0"
+                              style="-fx-border-style: solid; -fx-border-color: #cdcdcd;">
+                            <VBox.margin>
+                                <Insets bottom="10.0" right="10.0"/>
+                            </VBox.margin>
+                            <children>
+                                <Label>
+                                    <padding>
+                                        <Insets left="10.0"/>
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="242.0"
+                              style="-fx-border-style: solid; -fx-border-color: #cdcdcd;">
+                            <VBox.margin>
+                                <Insets bottom="10.0" right="10.0"/>
+                            </VBox.margin>
+                            <children>
+                                <Label text="Вязкость среды v">
+                                    <padding>
+                                        <Insets left="10.0"/>
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox maxHeight="36.0" minHeight="36.0" prefHeight="36.0" prefWidth="207.0"
+                              style="-fx-border-style: solid; -fx-border-color: #cdcdcd;">
+                            <VBox.margin>
+                                <Insets bottom="10.0" right="10.0"/>
+                            </VBox.margin>
+                            <children>
+                                <Label text="Давление насыщенных&#10;паров, Pv">
+                                    <padding>
+                                        <Insets left="10.0"/>
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox maxHeight="36.0" minHeight="36.0" prefHeight="36.0" prefWidth="214.0"
+                              style="-fx-border-style: solid; -fx-border-color: #cdcdcd;">
+                            <children>
+                                <Label text="Критическое т/д&#10;давление, Рс">
+                                    <padding>
+                                        <Insets left="10.0"/>
+                                    </padding>
+                                </Label>
+                            </children>
+                            <VBox.margin>
+                                <Insets right="10.0"/>
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox maxWidth="87.0" minWidth="87.0" prefHeight="425.0" prefWidth="87.0">
+                    <children>
+                        <HBox prefHeight="24.0" prefWidth="87.0">
+                            <VBox.margin>
+                                <Insets bottom="10.0"/>
+                            </VBox.margin>
+                            <children>
+                                <Label text="Ед. измерения">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets left="-7.0"/>
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <ChoiceBox fx:id="Q" minHeight="24.0" prefHeight="24.0" prefWidth="150.0"
+                                   style="-fx-font-size: 14px;">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="м3/ч"/>
+                                    <String fx:value="кг/ч"/>
+                                    <String fx:value="т/ч"/>
+                                    <String fx:value="л/ч"/>
+                                </FXCollections>
+                            </items>
+                            <padding>
+                                <Insets bottom="-3.0" top="-5.0"/>
+                            </padding>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="P1" minHeight="24.0" prefHeight="24.0" prefWidth="150.0"
+                                   style="-fx-font-size: 14px;">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="кг/см2"/>
+                                    <String fx:value="мПа"/>
+                                    <String fx:value="кПа"/>
+                                    <String fx:value="бар"/>
+                                    <String fx:value="атм"/>
+                                    <String fx:value="мм вод. ст."/>
+                                    <String fx:value="psi"/>
+                                </FXCollections>
+                            </items>
+                            <VBox.margin>
+                                <Insets top="10.0"/>
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="-3.0" top="-5.0"/>
+                            </padding>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="P2" minHeight="24.0" prefHeight="24.0" prefWidth="150.0"
+                                   style="-fx-font-size: 14px;">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="кг/см2"/>
+                                    <String fx:value="мПа"/>
+                                    <String fx:value="кПа"/>
+                                    <String fx:value="бар"/>
+                                    <String fx:value="атм"/>
+                                    <String fx:value="мм вод. ст."/>
+                                    <String fx:value="psi"/>
+                                </FXCollections>
+                            </items>
+                            <VBox.margin>
+                                <Insets top="10.0"/>
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="-3.0" top="-5.0"/>
+                            </padding>
+                        </ChoiceBox>
+                        <HBox prefHeight="24.0" prefWidth="87.0">
+                            <VBox.margin>
+                                <Insets bottom="10.0"/>
+                            </VBox.margin>
+                            <children>
+                                <ChoiceBox fx:id="inputD" minHeight="24.0" prefHeight="24.0" prefWidth="150.0"
+                                           style="-fx-font-size: 14px;">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="мм"/>
+                                            <String fx:value="м"/>
+                                        </FXCollections>
+                                    </items>
+                                    <HBox.margin>
+                                        <Insets top="10.0"/>
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets bottom="-3.0" top="-5.0"/>
+                                    </padding>
+                                </ChoiceBox>
+                            </children>
+                        </HBox>
+                        <HBox>
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                            <children>
+                                <ChoiceBox fx:id="outputD" minHeight="24.0" prefHeight="24.0" prefWidth="150.0"
+                                           style="-fx-font-size: 14px;">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="мм"/>
+                                            <String fx:value="м"/>
+                                        </FXCollections>
+                                    </items>
+                                    <padding>
+                                        <Insets bottom="-3.0" top="-5.0"/>
+                                    </padding>
+                                </ChoiceBox>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="41.0" prefWidth="87.0"/>
+                        <HBox minHeight="24.0">
+                            <VBox.margin>
+                                <Insets top="10.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <ChoiceBox fx:id="T" minHeight="24.0" prefHeight="24.0" prefWidth="150.0"
+                                   style="-fx-font-size: 14px;">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="\00B0C"/>
+                                    <String fx:value="\00B0K"/>
+                                </FXCollections>
+                            </items>
+                            <VBox.margin>
+                                <Insets top="15.0"/>
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="-3.0" top="-5.0"/>
+                            </padding>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="p" minHeight="24.0" prefHeight="24.0" prefWidth="150.0"
+                                   style="-fx-font-size: 14px;">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="кг/м²"/>
+                                </FXCollections>
+                            </items>
+                            <VBox.margin>
+                                <Insets top="15.0"/>
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="-3.0" top="-5.0"/>
+                            </padding>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="v" minHeight="24.0" prefHeight="24.0" prefWidth="150.0"
+                                   style="-fx-font-size: 14px;">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Па*с"/>
+                                    <String fx:value="сПа"/>
+                                    <String fx:value="мм²/с"/>
+                                    <String fx:value="сСт"/>
+                                    <String fx:value="м²/с"/>
+                                </FXCollections>
+                            </items>
+                            <VBox.margin>
+                                <Insets top="12.0"/>
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="-3.0" top="-5.0"/>
+                            </padding>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="Pv" minHeight="24.0" prefHeight="24.0" prefWidth="150.0"
+                                   style="-fx-font-size: 14px;">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="кг/см2"/>
+                                    <String fx:value="мПа"/>
+                                    <String fx:value="бар"/>
+                                </FXCollections>
+                            </items>
+                            <VBox.margin>
+                                <Insets top="15.0"/>
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="-3.0" top="-5.0"/>
+                            </padding>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="Pc" minHeight="24.0" prefHeight="24.0" prefWidth="150.0"
+                                   style="-fx-font-size: 14px;">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="кг/см2"/>
+                                    <String fx:value="мПа"/>
+                                    <String fx:value="бар"/>
+                                </FXCollections>
+                            </items>
+                            <VBox.margin>
+                                <Insets top="20.0"/>
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="-3.0" top="-5.0"/>
+                            </padding>
+                        </ChoiceBox>
+                    </children>
+                </VBox>
+                <fx:include source="vboxParameters.fxml"/>
+            </HBox>
+            <Button layoutX="14.0" layoutY="641.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="199.0"
+                    text="Расчитать"/>
+            <Button layoutX="237.0" layoutY="641.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="199.0"
+                    text="Далее без расчета"/>
+            <Button layoutX="461.0" layoutY="641.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="199.0"
+                    text="Загрузить расчет [Exel]"/>
+        </AnchorPane>
+    </ScrollPane>
+
+
 </AnchorPane>

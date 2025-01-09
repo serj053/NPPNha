@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+
+<TabPane prefHeight="730.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s.nppnha.controllers.TabController">
+
+    <Tab fx:id="parameters" closable="false" onSelectionChanged="#getParameters" text="Параметры среды">
+        <fx:include source="parameters.fxml" />
+    </Tab>
+    <Tab fx:id="calculations" closable="false" onSelectionChanged="#getCalculations" text="Расчеты">
+        <fx:include source="calculations.fxml"/>
+    </Tab>
+    <Tab fx:id="equipments" closable="false" onSelectionChanged="#getEquipments" text="Навесное оборудование">
+        <fx:include source="equipments.fxml"/>
+    </Tab>
+    <Tab fx:id="positions" closable="false" onSelectionChanged="#getPositions" text="Позиции сделки">
+        <fx:include source="positions.fxml"/>
+    </Tab>
+
+</TabPane>
