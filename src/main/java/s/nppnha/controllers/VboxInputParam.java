@@ -1,14 +1,26 @@
 package s.nppnha.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.layout.VBox;
 
-public class VboxForData {
+public class VboxInputParam {
 
     public SplitMenuButton inputD;
     public VBox dataColumn;
     public SplitMenuButton outputD;
+    public ChoiceBox<String> medium;
+    public ObservableList<String> mediumList = FXCollections.observableArrayList(
+            "Вода", "Пропан","Бутан","Пентан","Гексан","Метанол","Нефть","Бензин"
+            ,"Дизельное топливо","Легкие углеводороды","Тяжелые углеводороды","Этилен");
+
+
+    public void initialize(){
+        medium.setItems(mediumList);
+    }
 
     public void setInputD(ActionEvent event) {
 

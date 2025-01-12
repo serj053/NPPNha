@@ -32,6 +32,7 @@ public class Parameters {
             = FXCollections.observableArrayList("кг/см²", "мПа", "кПа", "бар", "атм", "мм вод. ст.", "psi");
     public ObservableList<String> listT
             = FXCollections.observableArrayList("°C", "°K");
+    public Label l1;
 
     public void initialize() {
         Q.setItems(listQ);
@@ -78,7 +79,7 @@ public class Parameters {
 
     public void addColumn(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/s/nppnha/vboxParameters.fxml"));
+        loader.setLocation(getClass().getResource("/s/nppnha/vboxInputParam.fxml"));
         VBox vb = (VBox) loader.load();
         Label lable = (Label)vb.lookup("#mode");
         lable.setText("NOM");

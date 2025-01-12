@@ -3,29 +3,27 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="740.0" maxWidth="1000.0" minHeight="500.0" minWidth="600.0" prefHeight="740.0"
-            prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="s.nppnha.controllers.MainController">
+<BorderPane maxHeight="740.0" maxWidth="1000.0" minHeight="500.0" minWidth="600.0" prefHeight="740.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s.nppnha.controllers.MainController">
     <center>
 
     </center>
     <top>
-        <MenuBar BorderPane.alignment="CENTER">
-            <Menu mnemonicParsing="false" text="Файл">
+        <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
+            <Menu fx:id="menu1" mnemonicParsing="false" text="Файл">
                 <MenuItem fx:id="newTask" mnemonicParsing="false" onAction="#getNewTask" text="Новая сделка" />
                 <MenuItem fx:id="oldTask" mnemonicParsing="false" onAction="#openOldTask" text="Сохранить сделку" />
                 <MenuItem fx:id="saveTask" mnemonicParsing="false" onAction="#saveTask" text="Экспорт в CRM[xls]" />
                 <MenuItem mnemonicParsing="false" text="Экспорт запроса электропривода." />
             </Menu>
-            <Menu mnemonicParsing="false" text="О программе">
-                <MenuItem mnemonicParsing="false" text="Здесь будет о программе" />
+            <Menu fx:id="menu2" mnemonicParsing="false" text="О программе">
+                <MenuItem fx:id="reference" mnemonicParsing="false" onAction="#getReference" text="Спрвака" />
+                <MenuItem mnemonicParsing="false" text="Настройка" />
             </Menu>
-            <Menu mnemonicParsing="false" text="Помощь">
-                <MenuItem mnemonicParsing="false" text="Здесь поможем" />
+            <Menu fx:id="menu3" mnemonicParsing="false" text="Темы">
+                <MenuItem fx:id="light" mnemonicParsing="false" onAction="#setLight" text="Светлая" />
+                <MenuItem fx:id="dark" mnemonicParsing="false" onAction="#setDark" text="Темная" />
             </Menu>
         </MenuBar>
     </top>
