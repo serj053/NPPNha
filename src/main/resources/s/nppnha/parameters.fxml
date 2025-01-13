@@ -18,12 +18,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="680.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s.nppnha.controllers.Parameters">
+<AnchorPane prefHeight="680.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s.nppnha.controllers.Parameters">
 
     <ScrollPane>
-        <AnchorPane fx:id="AnchEnvParam" prefHeight="680.0" prefWidth="1000.0">
-            <HBox fx:id="headerHBox" layoutY="7.0" prefHeight="150.0" prefWidth="889.0" style="">
-                <VBox fx:id="topHBox" maxHeight="140.0" minHeight="135.0" prefHeight="135.0" prefWidth="660.0" style="">
+        <AnchorPane fx:id="AnchEnvParam" prefHeight="680.0">
+            <HBox fx:id="headerHBox" layoutY="7.0" prefHeight="150.0" style="">
+                <VBox fx:id="topHBox" maxHeight="140.0" minHeight="135.0" prefHeight="135.0" prefWidth="600.0" style="">
                     <Label fx:id="envLabel" prefHeight="33.0" prefWidth="657.0" style="-fx-alignment: center;" text="среда не определена">
                         <font>
                             <Font name="System Bold" size="18.0" />
@@ -145,14 +145,14 @@
                             <Insets left="10.0" />
                         </padding>
                     </Label>
-                    <TextArea minWidth="300.0" prefHeight="124.0" prefWidth="300.0">
+                    <TextArea minWidth="300.0" prefHeight="124.0">
                         <VBox.margin>
                             <Insets left="10.0" />
                         </VBox.margin>
                     </TextArea>
                 </VBox>
             </HBox>
-            <HBox fx:id="dataHBox" id="dataHBox" layoutX="1.0" layoutY="152.0" maxWidth="1.7976931348623157E308" prefHeight="484.0" prefWidth="988.0" style="-fx-background-color: #e9e9e9;">
+            <HBox id="dataHBox" fx:id="dataHBox" layoutX="1.0" layoutY="152.0" maxWidth="1.7976931348623157E308" prefHeight="484.0">
                 <VBox minHeight="400.0" prefHeight="400.0" prefWidth="207.0">
                     <children>
                         <HBox fx:id="columnParameter" alignment="TOP_CENTER" maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="188.0">
@@ -210,7 +210,7 @@
                                 <Insets right="10.0" />
                             </VBox.margin>
                             <children>
-                                <MenuButton alignment="CENTER" minWidth="210.0" mnemonicParsing="false" prefHeight="210.0" text="Р выхдоное абс.">
+                                <MenuButton alignment="CENTER" minWidth="210.0" mnemonicParsing="false" prefHeight="210.0" text="Р выхдное (изб.))">
                                     <items>
                                         <MenuItem mnemonicParsing="false" text="Action 1" />
                                         <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -362,7 +362,7 @@
                                 </Label>
                             </children>
                         </HBox>
-                        <ChoiceBox fx:id="Q" minHeight="24.0" prefHeight="24.0" prefWidth="150.0" style="-fx-font-size: 14px;">
+                        <ChoiceBox fx:id="Q" minHeight="24.0" prefHeight="24.0" prefWidth="150.0" style="-fx-font-size: 14px;" value="м3/ч">
                             <items>
                                 <FXCollections fx:factory="observableArrayList">
                                     <String fx:value="м3/ч" />
@@ -413,45 +413,34 @@
                                 <Insets bottom="-3.0" top="-5.0" />
                             </padding>
                         </ChoiceBox>
-                        <HBox prefHeight="24.0" prefWidth="87.0">
-                            <VBox.margin>
-                                <Insets bottom="10.0" />
-                            </VBox.margin>
-                            <children>
-                                <ChoiceBox fx:id="inputD" minHeight="24.0" prefHeight="24.0" prefWidth="150.0" style="-fx-font-size: 14px;">
-                                    <items>
-                                        <FXCollections fx:factory="observableArrayList">
-                                            <String fx:value="мм" />
-                                            <String fx:value="м" />
-                                        </FXCollections>
-                                    </items>
-                                    <HBox.margin>
-                                        <Insets top="10.0" />
-                                    </HBox.margin>
-                                    <padding>
-                                        <Insets bottom="-3.0" top="-5.0" />
-                                    </padding>
-                                </ChoiceBox>
-                            </children>
-                        </HBox>
-                        <HBox>
-                            <VBox.margin>
-                                <Insets />
-                            </VBox.margin>
-                            <children>
-                                <ChoiceBox fx:id="outputD" minHeight="24.0" prefHeight="24.0" prefWidth="150.0" style="-fx-font-size: 14px;">
-                                    <items>
-                                        <FXCollections fx:factory="observableArrayList">
-                                            <String fx:value="мм" />
-                                            <String fx:value="м" />
-                                        </FXCollections>
-                                    </items>
-                                    <padding>
-                                        <Insets bottom="-3.0" top="-5.0" />
-                                    </padding>
-                                </ChoiceBox>
-                            </children>
-                        </HBox>
+                          <ChoiceBox fx:id="inputD" minHeight="24.0" prefHeight="24.0" prefWidth="150.0" style="-fx-font-size: 14px;">
+                              <items>
+                                  <FXCollections fx:factory="observableArrayList">
+                                      <String fx:value="мм" />
+                                      <String fx:value="м" />
+                                  </FXCollections>
+                              </items>
+                              <padding>
+                                  <Insets bottom="-3.0" top="-5.0" />
+                              </padding>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                          </ChoiceBox>
+                          <ChoiceBox fx:id="outputD" minHeight="24.0" prefHeight="24.0" prefWidth="150.0" style="-fx-font-size: 14px;">
+                              <items>
+                                  <FXCollections fx:factory="observableArrayList">
+                                      <String fx:value="мм" />
+                                      <String fx:value="м" />
+                                  </FXCollections>
+                              </items>
+                              <padding>
+                                  <Insets bottom="-3.0" top="-5.0" />
+                              </padding>
+                     <VBox.margin>
+                        <Insets top="12.0" />
+                     </VBox.margin>
+                          </ChoiceBox>
                         <HBox prefHeight="41.0" prefWidth="87.0" />
                         <HBox minHeight="24.0">
                             <VBox.margin>
@@ -491,7 +480,7 @@
                                     <String fx:value="Па*с" />
                                     <String fx:value="сПа" />
                                     <String fx:value="мм²/с" />
-                                    <String fx:value="сСт" />
+                                    <String fx:value="мм²/с" />
                                     <String fx:value="м²/с" />
                                 </FXCollections>
                             </items>
@@ -505,7 +494,7 @@
                         <ChoiceBox fx:id="Pv" minHeight="24.0" prefHeight="24.0" prefWidth="150.0" style="-fx-font-size: 14px;">
                             <items>
                                 <FXCollections fx:factory="observableArrayList">
-                                    <String fx:value="кг/см2" />
+                                    <String fx:value="кг/см²" />
                                     <String fx:value="мПа" />
                                     <String fx:value="бар" />
                                 </FXCollections>
@@ -520,7 +509,7 @@
                         <ChoiceBox fx:id="Pc" minHeight="24.0" prefHeight="24.0" prefWidth="150.0" style="-fx-font-size: 14px;">
                             <items>
                                 <FXCollections fx:factory="observableArrayList">
-                                    <String fx:value="кг/см2" />
+                                    <String fx:value="кг/см²" />
                                     <String fx:value="мПа" />
                                     <String fx:value="бар" />
                                 </FXCollections>
@@ -535,8 +524,8 @@
                     </children>
                 </VBox>
                 <fx:include fx:id="maxPosition" source="vboxInputParam.fxml" />
-            <HBox fx:id="nomPosition" id="nomPosition" maxHeight="484.0" prefHeight="484.0" />
-            <HBox fx:id="minPosition" id="minPosition" maxHeight="484.0" prefHeight="484.0" />
+            <HBox id="nomPosition" fx:id="nomPosition" maxHeight="484.0" prefHeight="484.0" />
+            <HBox id="minPosition" fx:id="minPosition" maxHeight="484.0" prefHeight="484.0" />
             </HBox>
             <Button layoutX="14.0" layoutY="641.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="199.0" text="Расчитать" />
             <Button layoutX="237.0" layoutY="641.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="199.0" text="Далее без расчета" />

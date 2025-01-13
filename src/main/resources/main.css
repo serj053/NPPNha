@@ -4,6 +4,9 @@
 #dataHBox Label, CheckBox{
     -fx-text-fill: #cdcdcd;
 }
+/*#dataHBox ChiceBox{*/
+/*    -fx-text-fill: #2c3e50;*/
+/*}*/
 
 #topHBox Label{
     -fx-text-fill: #cdcdcd;
@@ -15,7 +18,7 @@
 #maxNomMin CheckBox{
     -fx-text-fill: #2c3e50;
 }
-#unitsColumn ChoiceBox Label{
+#unitsColumn .label{
     -fx-text-fill: #2c3e50;
 }
 
@@ -36,7 +39,7 @@
 .menu-bar .menu-item:hover, .menu-item:focused, .menu-item:showing {
     -fx-background-color: #56799c;
 }
-#dataColumn  .label{
+#dataColumn  Label{
     -fx-text-fill: #cdcdcd;
 }
 /*.menu-button:hover .label, .menu-button:focused .label, .menu-button:showing .label{*/

@@ -15,6 +15,12 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 
 public class Parameters {
+    public ChoiceBox<String> inputD;
+    public ChoiceBox<String> outputD;
+    public ChoiceBox<String> p;
+    public ChoiceBox<String> v;
+    public ChoiceBox<String> Pv;
+    public ChoiceBox<String> Pc;
     private int n = 0;
 
     public CheckBox MIN;
@@ -36,6 +42,12 @@ public class Parameters {
             = FXCollections.observableArrayList("кг/см²", "мПа", "кПа", "бар", "атм", "мм вод. ст.", "psi");
     public ObservableList<String> listT
             = FXCollections.observableArrayList("°C", "°K");
+    public ObservableList<String> listInputD = FXCollections.observableArrayList("мм", "м");
+    public  ObservableList<String> listOutputD = FXCollections.observableArrayList("мм", "м");
+    public  ObservableList<String> listp = FXCollections.observableArrayList("кг/м³","кг/ст.м³","кг/н.м³");
+    public  ObservableList<String> listv = FXCollections.observableArrayList("Па*с","сПа","мм²/с","мм²/с","м²/с");
+    public  ObservableList<String> listPv = FXCollections.observableArrayList("кг/см²","мПа","бар");
+    public  ObservableList<String> listPc = FXCollections.observableArrayList("кг/см²","мПа","бар");
     public Label l1;
     public VBox maxPosition;
     public HBox nomPosition;
@@ -44,9 +56,25 @@ public class Parameters {
 
     public void initialize() {
         Q.setItems(listQ);
+        Q.setValue("м³/ч");
         P1.setItems(listP1);
+        P1.setValue("кг/см²");
         P2.setItems(listP2);
+        P2.setValue("кг/см²");
+        inputD.setItems(listInputD);
+        inputD.setValue("мм");
+        outputD.setItems(listOutputD);
+        outputD.setValue("мм");
         T.setItems(listT);
+        T.setValue("°C");
+        p.setItems(listp);
+        p.setValue("кг/ст.м³");
+        v.setItems(listv);
+        v.setValue("Па*с");
+        Pv.setItems(listPv);
+        Pv.setValue("кг/см²");
+        Pc.setItems(listPc);
+        Pc.setValue("кг/см²");
     }
 
     public void selectEquipment(ActionEvent event) {
