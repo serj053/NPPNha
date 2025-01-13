@@ -20,6 +20,7 @@ public class VboxInputParam {
 
     public void initialize() {
         medium.setItems(mediumList);
+
     }
 
     public void setInputD(ActionEvent event) {

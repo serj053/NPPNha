@@ -5,10 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -21,6 +18,7 @@ public class Parameters {
     public ChoiceBox<String> v;
     public ChoiceBox<String> Pv;
     public ChoiceBox<String> Pc;
+    public TextField columnNumber;
     private int n = 0;
 
     public CheckBox MIN;
@@ -75,6 +73,7 @@ public class Parameters {
         Pv.setValue("кг/см²");
         Pc.setItems(listPc);
         Pc.setValue("кг/см²");
+        columnNumber.setText(String.valueOf(0));
     }
 
     public void selectEquipment(ActionEvent event) {
@@ -121,12 +120,14 @@ public class Parameters {
         n++;
         lable.setText("NOM" + n);
         nomPosition.getChildren().add(vb);
+        columnNumber.setText(String.valueOf(n));
     }
 
     public void removeColumn(ActionEvent event) {
         if ((dataHBox.getChildren().size() > 3) && (!nomPosition.getChildren().isEmpty())) {
             nomPosition.getChildren().removeLast();
             n--;
+            columnNumber.setText(String.valueOf(n));
         }
     }
 

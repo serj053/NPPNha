@@ -21,6 +21,9 @@
 #unitsColumn .label{
     -fx-text-fill: #2c3e50;
 }
+#medium .label{
+    -fx-text-fill: #2c3e50;
+}
 
 .menu-bar{
     -fx-background-color: #cdcdcd;
