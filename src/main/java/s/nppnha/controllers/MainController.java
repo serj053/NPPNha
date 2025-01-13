@@ -8,10 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -25,7 +22,7 @@ import static s.nppnha.MainWin.getTabPane;
 
 public class MainController {
     //button
-    public void getNewTask(ActionEvent event) throws IOException {
+    public void getNewTask() throws IOException {
         getTabPane();//load FXML file tab.fxml
     }
 
@@ -37,22 +34,36 @@ public class MainController {
     public void saveTask(ActionEvent event) {
     }
 
-    public void setLight(ActionEvent event) {
-        Scene scene = MainWin.root.getScene();
-          if (scene.getRoot().lookup("#AnchEnvParam") != null) {
-        scene.getRoot().lookup("#dataHBox").setStyle("-fx-background-color: #e9e9e9");
-        scene.getStylesheets().remove("main.css");
-          }
-    }
 
-    public void setDark(ActionEvent event) {
+    public void setDark() {
+
         Scene scene = MainWin.root.getScene();
         if (scene.getRoot().lookup("#AnchEnvParam") != null) {
             scene.getRoot().lookup("#dataHBox").setStyle("-fx-background-color: #2c3e50");
             scene.getStylesheets().add("main.css");
+        }else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText(null);
+            alert.setContentText("Необходимо сначала создать сделку либо загрузить.");
+            alert.showAndWait();
         }
     }
 
+    public void setLight() {
+
+        Scene scene = MainWin.root.getScene();
+        if (scene.getRoot().lookup("#AnchEnvParam") != null) {
+            scene.getRoot().lookup("#dataHBox").setStyle("-fx-background-color: #e9e9e9");
+            scene.getStylesheets().remove("main.css");
+        }else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText(null);
+            alert.setContentText("Необходимо сначала создать сделку либо загрузить.");
+            alert.showAndWait();
+        }
+    }
     public void getReference(ActionEvent event) {
 
     }

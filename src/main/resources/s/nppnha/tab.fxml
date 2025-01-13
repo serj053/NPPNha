@@ -6,7 +6,7 @@
 <TabPane prefHeight="730.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
          fx:controller="s.nppnha.controllers.TabController">
 
-    <Tab fx:id="parameters" closable="false" onSelectionChanged="#getParameters" style="-fx-font-size: 14 px;" text="Параметры среды">
+    <Tab fx:id="parameters" id="parameters" closable="false" onSelectionChanged="#getParameters" style="-fx-font-size: 14 px;" text="Параметры среды">
         <fx:include source="parameters.fxml" />
     </Tab>
     <Tab fx:id="calculations" closable="false" onSelectionChanged="#getCalculations" style="-fx-font-size: 14 px;" text="Расчеты">

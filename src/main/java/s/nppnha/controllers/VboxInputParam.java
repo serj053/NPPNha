@@ -14,11 +14,11 @@ public class VboxInputParam {
     public SplitMenuButton outputD;
     public ChoiceBox<String> medium;
     public ObservableList<String> mediumList = FXCollections.observableArrayList(
-            "Вода", "Пропан","Бутан","Пентан","Гексан","Метанол","Нефть","Бензин"
-            ,"Дизельное топливо","Легкие углеводороды","Тяжелые углеводороды","Этилен");
+            "Вода", "Пропан", "Бутан", "Пентан", "Гексан", "Метанол", "Нефть", "Бензин"
+            , "Дизельное топливо", "Легкие углеводороды", "Тяжелые углеводороды", "Этилен");
 
 
-    public void initialize(){
+    public void initialize() {
         medium.setItems(mediumList);
     }
 
@@ -106,8 +106,8 @@ public class VboxInputParam {
         inputD.setText("550");
     }
 
-    public void setInD660(ActionEvent event) {
-        inputD.setText("660");
+    public void setInD600(ActionEvent event) {
+        inputD.setText("600");
     }
 
     public void setInD650(ActionEvent event) {
@@ -197,8 +197,8 @@ public class VboxInputParam {
         outputD.setText("550");
     }
 
-    public void setOutD660(ActionEvent event) {
-        outputD.setText("660");
+    public void setOutD600(ActionEvent event) {
+        outputD.setText("600");
     }
 
     public void setOUtD650(ActionEvent event) {

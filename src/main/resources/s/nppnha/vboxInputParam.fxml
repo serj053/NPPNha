@@ -59,7 +59,7 @@
                   <MenuItem fx:id="d4501" mnemonicParsing="false" onAction="#setInD450" text="450" />
                   <MenuItem fx:id="d5001" mnemonicParsing="false" onAction="#setInD500" text="500" />
                   <MenuItem fx:id="d5501" mnemonicParsing="false" onAction="#setInD550" text="550" />
-                  <MenuItem fx:id="d6001" mnemonicParsing="false" onAction="#setInD660" text="600" />
+                  <MenuItem fx:id="d6001" mnemonicParsing="false" onAction="#setInD600" text="600" />
                   <MenuItem fx:id="d6501" mnemonicParsing="false" onAction="#setInD650" text="650" />
                   <MenuItem fx:id="d7001" mnemonicParsing="false" onAction="#setInD700" text="700" />
               </items>
@@ -104,7 +104,7 @@
                 <MenuItem fx:id="d450" mnemonicParsing="false" onAction="#setOutD450" text="450" />
                 <MenuItem fx:id="d500" mnemonicParsing="false" onAction="#setOutD500" text="500" />
                 <MenuItem fx:id="d550" mnemonicParsing="false" onAction="#setOutD550" text="550" />
-                <MenuItem fx:id="d600" mnemonicParsing="false" onAction="#setOutD660" text="600" />
+                <MenuItem fx:id="d600" mnemonicParsing="false" onAction="#setOutD600" text="600" />
                 <MenuItem fx:id="d650" mnemonicParsing="false" onAction="#setOUtD650" text="650" />
                 <MenuItem fx:id="d700" mnemonicParsing="false" onAction="#setOutD700" text="700" />
             </items>
