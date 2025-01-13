@@ -1,26 +1,25 @@
 package s.nppnha.controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.application.Application;
+import javafx.application.HostServices;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import s.nppnha.MainWin;
+import s.nppnha.MainWindow;
 
+import java.io.File;
 import java.io.IOException;
 
-import static s.nppnha.MainWin.getTabPane;
+import static s.nppnha.MainWindow.getTabPane;
 
 public class MainController {
+    private Application host;
+
+    public void setHost(Application host) {
+        this.host = host;
+    }
     //button
     public void getNewTask() throws IOException {
         getTabPane();//load FXML file tab.fxml
@@ -28,16 +27,32 @@ public class MainController {
 
     //button
     public void openOldTask(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        fileChooser.setInitialDirectory(new File("c:\\"));
+        File file = fileChooser.showOpenDialog(new Stage());
+        HostServices hostServices = host.getHostServices();
+        if (file != null) {
+            hostServices.showDocument(file.getAbsolutePath());
+        }
     }
 
     //button
     public void saveTask(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Resource File");
+        fileChooser.setInitialDirectory(new File("c:\\"));
+        File file = fileChooser.showSaveDialog(new Stage());
+        HostServices hostServices = host.getHostServices();
+        if (file != null) {
+            hostServices.showDocument(file.getAbsolutePath());
+        }
     }
 
 
     public void setDark() {
 
-        Scene scene = MainWin.root.getScene();
+        Scene scene = MainWindow.root.getScene();
         if (scene.getRoot().lookup("#AnchEnvParam") != null) {
             scene.getRoot().lookup("#dataHBox").setStyle("-fx-background-color: #2c3e50");
             scene.getStylesheets().add("main.css");
@@ -52,7 +67,7 @@ public class MainController {
 
     public void setLight() {
 
-        Scene scene = MainWin.root.getScene();
+        Scene scene = MainWindow.root.getScene();
         if (scene.getRoot().lookup("#AnchEnvParam") != null) {
             scene.getRoot().lookup("#dataHBox").setStyle("-fx-background-color: #e9e9e9");
             scene.getStylesheets().remove("main.css");
@@ -60,12 +75,18 @@ public class MainController {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");
             alert.setHeaderText(null);
-            alert.setContentText("Необходимо сначала создать сделку либо загрузить.");
+            alert.setContentText("Необходимо сначала создать сделку, либо загрузить.");
             alert.showAndWait();
         }
     }
     public void getReference(ActionEvent event) {
 
+    }
+
+    public void exportCRM(ActionEvent event) {
+    }
+
+    public void exporttElectriсDrive(ActionEvent event) {
     }
 }
 /*
