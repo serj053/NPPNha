@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -12,6 +11,24 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 
 public class Parameters {
+
+    public MenuItem controlValve;
+    public MenuItem shutOffControlValve;
+    public MenuItem cutOffControlValve;
+    public MenuItem shutOffValve;
+    public MenuItem cutOffValve;
+    public Button absoluteP;
+    public Button redundantP;
+    public SplitMenuButton nodeType;
+    public MenuItem notUnloaded;
+    public MenuItem unloaded;
+
+    public MenuItem itemPOut;
+    public MenuItem itemDeltaP;
+    public CheckBox outoFill;
+
+
+    public MenuButton menuButtonOutP;
     public ChoiceBox<String> inputD;
     public ChoiceBox<String> outputD;
     public ChoiceBox<String> p;
@@ -19,6 +36,7 @@ public class Parameters {
     public ChoiceBox<String> Pv;
     public ChoiceBox<String> Pc;
     public TextField columnNumber;
+
     private int n = 0;
 
     public CheckBox MIN;
@@ -27,8 +45,8 @@ public class Parameters {
     public ChoiceBox<String> P1;
     public ChoiceBox<String> Q;
     public static Label envLabel;
-    public SplitMenuButton selectedEquipment;
-    public SplitMenuButton nodeType;
+    public SplitMenuButton selectedEquipment;// выбор устройство
+
     public SplitMenuButton diameter;
     public VBox dataColumn;
     public HBox dataHBox;// * подключение
@@ -41,11 +59,11 @@ public class Parameters {
     public ObservableList<String> listT
             = FXCollections.observableArrayList("°C", "°K");
     public ObservableList<String> listInputD = FXCollections.observableArrayList("мм", "м");
-    public  ObservableList<String> listOutputD = FXCollections.observableArrayList("мм", "м");
-    public  ObservableList<String> listp = FXCollections.observableArrayList("кг/м³","кг/ст.м³","кг/н.м³");
-    public  ObservableList<String> listv = FXCollections.observableArrayList("Па*с","сПа","мм²/с","мм²/с","м²/с");
-    public  ObservableList<String> listPv = FXCollections.observableArrayList("кг/см²","мПа","бар");
-    public  ObservableList<String> listPc = FXCollections.observableArrayList("кг/см²","мПа","бар");
+    public ObservableList<String> listOutputD = FXCollections.observableArrayList("мм", "м");
+    public ObservableList<String> listp = FXCollections.observableArrayList("кг/м³", "кг/ст.м³", "кг/н.м³");
+    public ObservableList<String> listv = FXCollections.observableArrayList("Па*с", "сПа", "мм²/с", "мм²/с", "м²/с");
+    public ObservableList<String> listPv = FXCollections.observableArrayList("кг/см²", "мПа", "бар");
+    public ObservableList<String> listPc = FXCollections.observableArrayList("кг/см²", "мПа", "бар");
     public Label l1;
     public VBox maxPosition;
     public HBox nomPosition;
@@ -74,6 +92,8 @@ public class Parameters {
         Pc.setItems(listPc);
         Pc.setValue("кг/см²");
         columnNumber.setText(String.valueOf(0));
+        selectedEquipment.setText("Клапан регулирующий");
+        nodeType.setText("Разгруженный ");
     }
 
     public void selectEquipment(ActionEvent event) {
@@ -132,7 +152,7 @@ public class Parameters {
     }
 
     public void addMIN(ActionEvent event) throws IOException {
-        System.out.println("1 " + dataHBox.getChildren());//.get(2).lookup("#mode").toString());
+        //   System.out.println("1 " + dataHBox.getChildren());//.get(2).lookup("#mode").toString());
         if (MIN.isSelected() && minPosition.lookup("#dataColumn") == null) {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/s/nppnha/vboxInputParam.fxml"));
@@ -144,6 +164,48 @@ public class Parameters {
             //      minPosition.getChildren().getFirst();
             minPosition.getChildren().removeFirst();
         }
+
+    }
+
+    public void pushMenuButtonOutP(ActionEvent event) {
+    }
+
+    //button change
+    public void setAbsoluteP(ActionEvent event) {
+        itemPOut.setText("P абсолютное");
+        if (!menuButtonOutP.getText().equals("ΔP")) {
+            setPout(event);
+        }
+    }
+
+    //button change
+    public void setRedundantP(ActionEvent event) {
+        itemPOut.setText("P избыточное");
+        if (!menuButtonOutP.getText().equals("ΔP")) {
+            setPout(event);
+        }
+    }
+
+    //item
+    public void setItemDeltaP(ActionEvent event) {
+        menuButtonOutP.setText("ΔP");
+    }
+
+    //item
+    public void setPout(ActionEvent event) {
+        menuButtonOutP.setText(itemPOut.getText());
+    }
+
+
+    public void setOutoFill(ActionEvent event) {
+    }
+}
+//FXMLLoader loader = new FXMLLoader();
+//                    loader.setLocation(getClass().getResource("/s/nppnha/vboxInputParam.fxml"));
+//VBox vb = (VBox) loader.load();
+//Label lable = (Label) vb.lookup("#mode");
+//                    lable.setText("MIN");
+//                    dataHBox.getChildren().add(vb);
 //        ObservableList<Node> data = dataHBox.getChildren();
 //        System.out.println(data);
 //        int n =0;
@@ -159,11 +221,3 @@ public class Parameters {
 //        if(n == 1){
 
 //        }
-    }
-}
-//FXMLLoader loader = new FXMLLoader();
-//                    loader.setLocation(getClass().getResource("/s/nppnha/vboxInputParam.fxml"));
-//VBox vb = (VBox) loader.load();
-//Label lable = (Label) vb.lookup("#mode");
-//                    lable.setText("MIN");
-//                    dataHBox.getChildren().add(vb);

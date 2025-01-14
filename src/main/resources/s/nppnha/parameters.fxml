@@ -70,8 +70,8 @@
                         </SplitMenuButton>
                         <SplitMenuButton fx:id="nodeType" alignment="CENTER" mnemonicParsing="false" onAction="#selectNodeType" prefWidth="160.0" text="выбрать">
                             <items>
-                                <MenuItem fx:id="notUnloaded" mnemonicParsing="false" onAction="#notUnloaded" text="неразгруженный" />
-                                <MenuItem fx:id="unloaded" mnemonicParsing="false" onAction="#unloaded" text="разгруженный" />
+                                <MenuItem fx:id="notUnloaded" mnemonicParsing="false" onAction="#notUnloaded" text="Неразгруженный" />
+                                <MenuItem fx:id="unloaded" mnemonicParsing="false" onAction="#unloaded" text="Разгруженный" />
                             </items>
                             <HBox.margin>
                                 <Insets left="50.0" />
@@ -177,12 +177,12 @@
                                         <Insets left="5.0" />
                                     </HBox.margin>
                                 </Label>
-                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="8.0" prefWidth="38.0" text="абс.">
+                                <Button fx:id="absoluteP" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#setAbsoluteP" prefHeight="8.0" prefWidth="38.0" text="абс.">
                                     <HBox.margin>
                                         <Insets left="5.0" />
                                     </HBox.margin>
                                 </Button>
-                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="11.0" prefWidth="38.0" text="изб.">
+                                <Button fx:id="redundantP" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#setRedundantP" prefHeight="11.0" prefWidth="38.0" text="изб.">
                                     <HBox.margin>
                                         <Insets left="5.0" />
                                     </HBox.margin>
@@ -202,10 +202,10 @@
                                 <Insets right="10.0" />
                             </VBox.margin>
                             <children>
-                                <MenuButton alignment="CENTER" minWidth="210.0" mnemonicParsing="false" prefHeight="210.0" text="Р выхдное (изб.))">
+                                <MenuButton fx:id="menuButtonOutP" alignment="CENTER" minWidth="210.0" mnemonicParsing="false" onAction="#pushMenuButtonOutP" prefHeight="210.0" text="Р выходное (изб.)">
                                     <items>
-                                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                                        <MenuItem fx:id="itemPOut" mnemonicParsing="false" onAction="#setPout" text="Р выходное (изб.)" />
+                                        <MenuItem fx:id="itemDeltaP" mnemonicParsing="false" onAction="#setItemDeltaP" text="ΔP перепад давления" />
                                     </items>
                                 </MenuButton>
                             </children>
@@ -280,7 +280,7 @@
                                         <Insets left="10.0" />
                                     </padding>
                                 </Label>
-                                <CheckBox mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" text="авто зап.">
+                                <CheckBox fx:id="outoFill" mnemonicParsing="false" onAction="#setOutoFill" prefHeight="34.0" prefWidth="82.0" text="авто зап.">
                                     <HBox.margin>
                                         <Insets left="10.0" />
                                     </HBox.margin>

@@ -5,26 +5,29 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="740.0" minHeight="500.0" minWidth="1000.0" prefHeight="740.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s.nppnha.controllers.MainController">
+<BorderPane maxHeight="740.0" minHeight="500.0" minWidth="1000.0" prefHeight="740.0"
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="s.nppnha.controllers.MainController">
     <center>
 
     </center>
     <top>
         <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
             <Menu fx:id="menu1" mnemonicParsing="false" text="Файл">
-                <MenuItem fx:id="newTask" mnemonicParsing="false" onAction="#getNewTask" text="Новая сделка" />
-            <MenuItem fx:id="oldTask" mnemonicParsing="false" onAction="#openOldTask" text="Открыть сделку" />
-                <MenuItem fx:id="saveTask" mnemonicParsing="false" onAction="#saveTask" text="Сохранить сделку" />
-                <MenuItem fx:id="exportCRM" mnemonicParsing="false" onAction="#exportCRM" text="Экспорт в CRM[xls]" />
-                <MenuItem fx:id="exporttElectriсDrive" mnemonicParsing="false" onAction="#exporttElectriсDrive" text="Экспорт запроса электропривода." />
+                <MenuItem fx:id="newTask" mnemonicParsing="false" onAction="#getNewTask" text="Новая сделка"/>
+                <MenuItem fx:id="oldTask" mnemonicParsing="false" onAction="#openOldTask" text="Открыть сделку"/>
+                <MenuItem fx:id="saveTask" mnemonicParsing="false" onAction="#saveTask" text="Сохранить сделку"/>
+                <MenuItem fx:id="exportCRM" mnemonicParsing="false" onAction="#exportCRM" text="Экспорт в CRM[xls]"/>
+                <MenuItem fx:id="exporttElectriсDrive" mnemonicParsing="false" onAction="#exporttElectriсDrive"
+                          text="Экспорт запроса электропривода."/>
             </Menu>
             <Menu fx:id="menu2" mnemonicParsing="false" text="О программе">
-                <MenuItem fx:id="reference" mnemonicParsing="false" onAction="#getReference" text="Спрвака" />
-                <MenuItem mnemonicParsing="false" text="Настройка" />
+                <MenuItem fx:id="reference" mnemonicParsing="false" onAction="#getReference" text="Спрвака"/>
+                <MenuItem mnemonicParsing="false" text="Настройка"/>
             </Menu>
             <Menu fx:id="menu3" mnemonicParsing="false" text="Темы">
-                <MenuItem fx:id="light" mnemonicParsing="false" onAction="#setLight" text="Светлая" />
-                <MenuItem fx:id="dark" mnemonicParsing="false" onAction="#setDark" text="Темная" />
+                <MenuItem fx:id="light" mnemonicParsing="false" onAction="#setLight" text="Светлая"/>
+                <MenuItem fx:id="dark" mnemonicParsing="false" onAction="#setDark" text="Темная"/>
             </Menu>
         </MenuBar>
     </top>
