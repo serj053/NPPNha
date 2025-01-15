@@ -13,7 +13,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="620" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s.nppnha.controllers.Positions">
+<?import javafx.scene.layout.Pane?>
+<Pane prefHeight="620" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s.nppnha.controllers.Positions">
    <HBox layoutX="2.0" prefHeight="40.0">
       <Label text="Сделка №">
          <HBox.margin>
@@ -115,4 +116,4 @@
          </columns>
       </TableView>
    </ScrollPane>
-</AnchorPane>
+</Pane>

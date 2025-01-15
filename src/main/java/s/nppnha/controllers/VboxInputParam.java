@@ -12,14 +12,14 @@ public class VboxInputParam {
     public SplitMenuButton inputD;
     public VBox dataColumn;
     public SplitMenuButton outputD;
-    public ChoiceBox<String> medium;
+    public ChoiceBox<String> mediumChoice;
     public ObservableList<String> mediumList = FXCollections.observableArrayList(
             "Вода", "Пропан", "Бутан", "Пентан", "Гексан", "Метанол", "Нефть", "Бензин"
             , "Дизельное топливо", "Легкие углеводороды", "Тяжелые углеводороды", "Этилен");
 
 
     public void initialize() {
-        medium.setItems(mediumList);
+        mediumChoice.setItems(mediumList);
 
     }
 
